@@ -23,6 +23,9 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -47,12 +50,22 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun Counter(){
+    val count = remember { mutableIntStateOf(0) }
+    Button(onClick = { count.value++ }) {
+        Text("Clicked ${count.value} times!")
+    }
+}
+@Composable
 fun UnitConverter() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Row {
+            Counter()
+        }
         Text("Unit Converter", Modifier.padding(100.dp))
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(value = "", onValueChange = {
