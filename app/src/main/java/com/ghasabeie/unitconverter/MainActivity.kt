@@ -71,7 +71,7 @@ fun UnitConverter() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Unit Converter")
+        Text("Unit Converter", style = MaterialTheme.typography.headlineLarge)
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(value = inputValue, onValueChange = {
             inputValue = it
@@ -177,7 +177,8 @@ fun UnitConverter() {
 
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Text("Result: $outputValue $outputUnit")
+        Text("Result: $outputValue $outputUnit",
+            style = MaterialTheme.typography.headlineMedium)
     }
 }
 
